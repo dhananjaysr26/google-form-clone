@@ -9,7 +9,7 @@ interface RenderFormProps {
 
 const RenderForm: React.FC<RenderFormProps> = ({ formFields }) => {
     const methods = useForm<FormData>({ mode: 'onChange' });
-    const { handleSubmit, watch, setValue } = methods;
+    const { handleSubmit, watch } = methods;
     console.log(watch())
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
