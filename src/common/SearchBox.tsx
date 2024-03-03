@@ -6,7 +6,7 @@ interface SearchBoxProps {
 
 const SearchBox: React.FC<SearchBoxProps> = () => {
     return (
-        <div className=' p-2 w-1/2 rounded bg-slate-100 shadow hidden md:block'>
+        <div className=' p-2 w-1/2 max-w-[550px] rounded bg-slate-100 shadow hidden md:block'>
             <div className='h-8 w-full gap-0.5 flex items-center'>
                 <BiSearch size={24} />
                 <input
@@ -16,7 +16,6 @@ const SearchBox: React.FC<SearchBoxProps> = () => {
                 />
             </div>
         </div>
-
     );
 };
 

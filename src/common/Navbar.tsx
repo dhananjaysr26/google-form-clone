@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = () => {
     return (
-        <div className=' h-16 bg-white shadow flex justify-between  items-center px-3 sticky top-0 z-10'>
+        <div className=' h-16 bg-white shadow flex justify-between  items-center px-3 md:px-12 sticky top-0 z-10'>
             <div className=' flex items-center gap-2'>
                 <IoIosMenu size={24} />
                 <h1>Google Forms</h1>

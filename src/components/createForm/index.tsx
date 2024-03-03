@@ -65,7 +65,7 @@ const CreateForm: React.FC<CreateFormProps> = () => {
                         {fields.map((field, index: number) => {
                             return (<FormFieldEditor key={field?.id} field={field} index={index} isNew={fields.length - 1 === index} />)
                         })}
-                        <div className=' flex justify-center'>
+                        <div className=' flex justify-center mt-5'>
                             <button type='submit'
                                 className="bg-red-500 hover:bg-red-700 w-fit text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:shadow-outline-blue active:bg-red-800"
                             >
@@ -74,7 +74,7 @@ const CreateForm: React.FC<CreateFormProps> = () => {
                         </div>
                     </form>
                 </FormProvider>
-                <div className=' absolute right-0 bottom-10'>
+                <div className=' absolute right-0 bottom-16'>
                     <button className=' text-sm font-semibold px-2' onClick={handleAddNewFormField}>+Add New Question </button>
                 </div>
             </div>

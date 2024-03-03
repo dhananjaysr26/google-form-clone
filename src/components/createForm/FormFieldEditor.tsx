@@ -3,7 +3,6 @@ import { useFormContext } from 'react-hook-form';
 import { Question } from '.';
 import { fieldProps } from '../../utils/forms';
 import SelectFieldType from './SelectFieldType';
-import useCreateFormStore from '../../store/useCreateForm.store';
 
 interface FormFieldEditorProps {
     field: Question;
@@ -12,14 +11,8 @@ interface FormFieldEditorProps {
 }
 
 const FormFieldEditor: React.FC<FormFieldEditorProps> = ({ field, index, isNew = false }) => {
-    const { setIsTypeChange } = useCreateFormStore()
-    const { register, setValue } = useFormContext();
+    const { register } = useFormContext();
     const [showExtraOptions, setShowExtraOptions] = useState(false)
-
-    const handleFieldTypeChange = (selectedType: string) => {
-        setValue(`questions.${index}.type`, selectedType)
-        setIsTypeChange()
-    }
 
     const renderExtraOptions = () => {
         const extraFields = fieldProps[field?.type]?.extraOptions;
@@ -28,7 +21,7 @@ const FormFieldEditor: React.FC<FormFieldEditorProps> = ({ field, index, isNew =
                 <input
                     key={key}
                     type={type}
-                    {...register(`questions.${index}.extraOptions.${key}` as const)}
+                    {...register(`questions.${index}.extraOptions.${key}`)}
                     placeholder={`Enter ${key}`}
                     className="border w-full md:w-auto border-gray-300 p-2 rounded-md mt-2 focus:outline-none focus:border-blue-500"
 
@@ -75,7 +68,7 @@ const FormFieldEditor: React.FC<FormFieldEditorProps> = ({ field, index, isNew =
             </div>
             <div className=' flex justify-between gap-x-5 items-center'>
                 <h3 className="capitalize text-base md:text-lg p-2 border rounded my-2 w-full">{field?.type} Field</h3>
-                <SelectFieldType handleOnClickOption={handleFieldTypeChange} defaultValue={field?.type} />
+                <SelectFieldType name={`questions.${index}.type`} defaultValue={field?.type} />
             </div>
             <div className="flex flex-wrap gap-x-3 gap-y-2">{renderFieldInputs()}</div>
         </div>
