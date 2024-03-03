@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaListUl } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 interface HomeProps {
 
@@ -29,9 +30,9 @@ const Home: React.FC<HomeProps> = () => {
                     <div className=' pt-4 flex w-full h-[calc(100%-32px)] gap-4 '>
                         {
                             templates.map(c => {
-                                return <div className=' h-full w-[200px] bg-black/20 rounded flex items-center justify-center cursor-pointer hover:border-2 hover:border-red-400'>
+                                return <Link to={"/create-form"}><div className=' h-full w-[200px] bg-black/20 rounded flex items-center justify-center cursor-pointer hover:border-2 hover:border-red-400'>
                                     <h2>{c?.name}</h2>
-                                </div>
+                                </div></Link>
                             })
                         }
                     </div>

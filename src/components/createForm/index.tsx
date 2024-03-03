@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { FormProvider, useForm, SubmitHandler, useFieldArray } from 'react-hook-form';
 import FormFieldEditor from './FormFieldEditor';
 import useCreateFormStore from '../../store/useCreateForm.store';
+import { Link } from 'react-router-dom';
 
 interface CreateFormProps { }
 
@@ -59,6 +60,7 @@ const CreateForm: React.FC<CreateFormProps> = () => {
     return (
         <div className='container mx-auto h-full max-w-screen-lg mt-10 bg-black'>
             <div className='h-full bg-slate-50 relative'>
+                <div className=' absolute top-0 right-0 p-2'><Link to={"/form/my-form34"}>View Form</Link></div>
                 <h1 className=' text-3xl font-semibold text-center pt-3'>Form Creation</h1>
                 <FormProvider {...methods}>
                     <form className={`flex flex-col p-10 gap-5`} onSubmit={handleSubmit(onSubmit)}>
