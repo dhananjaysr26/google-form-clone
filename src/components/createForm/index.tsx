@@ -56,6 +56,7 @@ const CreateForm: React.FC<CreateFormProps> = () => {
             setValue('questions', [emptyFieldObject]);
         }
     }, [questions, emptyFieldObject]);
+    console.log({ fields })
 
     return (
         <div className='container mx-auto h-full max-w-screen-lg mt-10 bg-black'>
@@ -64,7 +65,7 @@ const CreateForm: React.FC<CreateFormProps> = () => {
                 <h1 className=' text-3xl font-semibold text-center pt-3'>Form Creation</h1>
                 <FormProvider {...methods}>
                     <form className={`flex flex-col p-10 gap-5`} onSubmit={handleSubmit(onSubmit)}>
-                        {fields.map((field, index: number) => {
+                        {questions && questions.map((field, index: number) => {
                             return (<FormFieldEditor key={field?.id} field={field} index={index} isNew={fields.length - 1 === index} />)
                         })}
                         <div className=' flex justify-center mt-5'>
